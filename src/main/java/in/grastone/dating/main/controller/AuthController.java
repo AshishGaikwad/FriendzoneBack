@@ -30,21 +30,25 @@ import jakarta.validation.Valid;
 @RequestMapping("auth")
 public class AuthController {
 
-	@Autowired
 	private Util lUtil;
-
-	@Autowired
 	private OTPDao lOTPDao;
-
-	@Autowired
 	private AuthService authService;
-	
-	@Autowired
-	private PasswordEncoder passwordEncoder;
-	
-	@Autowired
+	private PasswordEncoder passwordEncoder;	
 	private JwtService jwtService;
 	
+	
+	
+	
+	public AuthController(Util lUtil, OTPDao lOTPDao, AuthService authService, PasswordEncoder passwordEncoder,
+			JwtService jwtService) {
+		super();
+		this.lUtil = lUtil;
+		this.lOTPDao = lOTPDao;
+		this.authService = authService;
+		this.passwordEncoder = passwordEncoder;
+		this.jwtService = jwtService;
+	}
+
 	@GetMapping(value="available/user/{username}")
 	public ResponseEntity<?> checkUserNameAvailibility(@PathVariable("username") String pUserName){
 		
