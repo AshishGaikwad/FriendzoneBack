@@ -1,14 +1,18 @@
 package in.grastone.dating.main.entity;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 
+import in.grastone.dating.main.enums.AstrologicalSign;
+import in.grastone.dating.main.enums.Cities;
+import in.grastone.dating.main.enums.EducationLevel;
+import in.grastone.dating.main.enums.LookingFor;
+import in.grastone.dating.main.enums.Occupation;
+import in.grastone.dating.main.enums.RelationshipStatus;
+import in.grastone.dating.main.enums.ReligiousBelief;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -37,13 +41,13 @@ public class ProfileEntity implements Serializable {
     private String username;                // Unique identifier for the user
     private String fullName;                // Full name of the user
     private int age;                        // Age of the user
-    private String location;                // Geographic location of the user
-    private String occupation;              // Job or career information
-    private String education;              // Educational background
-    private String relationshipStatus;     // Current relationship status
-    private String sexualOrientation;       // Sexual orientation of the user
+    private Cities cityId;                // Geographic location of the user
+    private Occupation occupationId;              // Job or career information
+    private EducationLevel educationId;              // Educational background
+    private RelationshipStatus relationshipStatusId;     // Current relationship status
+//    private SexualOrientation sexualOrientationId;       // Sexual orientation of the user
 
-//    @OneToMany(mappedBy = "profile")
+    //    @OneToMany(mappedBy = "profile")
 //    private List<InterestProfileMappingEntity> interests = new ArrayList<>();  // List of personal interests
 
 //    @OneToMany(mappedBy = "profile")
@@ -52,15 +56,13 @@ public class ProfileEntity implements Serializable {
     private boolean isSmoker;               // Smoking habits
     private boolean isDrinker;              // Drinking habits
     private boolean isVegetarian;           // Vegetarian status
-    private String goals;                   // Personal goals
-    private String values;                  // Core values
     private boolean hasPets;                // Whether the user has pets
     
 //    @OneToMany(mappedBy = "profile")
 //    private List<LanguagesProfileMappingEntity> languages = new ArrayList<>();  // Languages spoken
-    private String religiousBeliefs;        // Religious beliefs
-    private String lookingFor;              // What the user is seeking in a partner
-    private String astrologicalSign;        // Astrological sign
+    private ReligiousBelief religiousBeliefsId;        // Religious beliefs
+    private LookingFor lookingForId;              // What the user is seeking in a partner
+    private AstrologicalSign astrologicalSignId;        // Astrological sign
     
 //    @OneToMany(mappedBy = "profile")
 //    private List<PhotosProfileMappingEntity> photos = new ArrayList<>();  // List of profile photos
